@@ -24,10 +24,15 @@ $PasswordAuto = Read-Host -Prompt "Enter current BIOS password (or leave blank)"
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($PasswordAuto)
 $PasswordPlainText = "<utf-16/>" + [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 
+#Change BIOS settings.
 $HPBIOS | Invoke-CimMethod -MethodName SetBIOSSetting -Arguments @{Name="Virtualization Technology (VTx)";Value="Enable";Password="$PasswordPlainText"}
 $HPBIOS | Invoke-CimMethod -MethodName SetBIOSSetting -Arguments @{Name="Virtualization Technology for Directed I/O (VTd)";Value="Enable";Password="$PasswordPlainText"}
 
+#Remove variable with password in it.
 Remove-Variable PasswordPlainText
+
+#End session connection
+Remove-CimSession $Session
 
 
 <#Notes
