@@ -51,7 +51,8 @@ function Set-BIOSSetting {
         6 { $ReturnMessage = "Access Denied" }
     }
     $ReturnTable = @{
-        "BIOSItem"="$Name"; 
+        "BIOSItem"=$Name;
+        "BIOSValue"=$Value;
         "ReturnMessage"=$ReturnMessage;
         "ReturnCode"=$ReturnCode;           
     }
