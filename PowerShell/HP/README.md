@@ -1,6 +1,6 @@
-# Scripts relating to HP computers
+# Scripts for HP computers
 
-Here are scripts relating to functions on HP computers.
+Here are scripts for working with HP (buisness) computers.
 
 ## Script descriptions
 
