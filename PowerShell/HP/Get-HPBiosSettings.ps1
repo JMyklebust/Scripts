@@ -31,7 +31,7 @@ Remove-CimSession $Session
 $OutFile = "$LogFolder\$($ComputerInfo.Name)_$($ComputerInfo.Model).csv" -replace ' ','_'
 
 #Clear entries with no name by filtering if the name property contains any character that is not space, tab or newline
-$HPBIOS = $HPBIOS | Where-Object -FilterScript {$_.name -match '\S'} | Sort-Object Path
+$HPBIOS = $HPBIOS | Where-Object -FilterScript {$_.name -match '\S'} | Sort-Object Path,Name
 
 #Filter and add export list to csv
 $HPBIOS | Select-Object Path,Name,CurrentValue,@{n="PossibleValues";e={($_ | Select -ExpandProperty PossibleValues) -join ','}} | Export-Csv -Path $OutFile -NoTypeInformation -Encoding ASCII
