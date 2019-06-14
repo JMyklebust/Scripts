@@ -1,7 +1,7 @@
 #source http://www.cze.cz
 #this script is tested with "Cisco AnyConnect Secure Mobility Client version 3.0.5080"
 
-## 2019-02-26 Updated by <jens-kristian.myklebust@atea.no>
+## 2019-02-26 Updated by <jensmyklebust@outlook.com>
 # Added script parameter for VPN address and Username
 # Changed password handling so that password is not exposed in plaintext in console or script.
 # Added relative paths to Cisco VPN (to handle both x64 and x86)
